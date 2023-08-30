@@ -1,3 +1,4 @@
+import ResultsList from "@/components/ResultsList";
 import { getFetchUrl } from "@/lib/getFetchUrl";
 import { PageResult, SearchParams } from "@/typings";
 import { redirect } from "next/navigation";
