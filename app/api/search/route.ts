@@ -1,4 +1,4 @@
-import { SearchParams } from "@/typings";
+import { PageResult, SearchParams } from "@/typings";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
