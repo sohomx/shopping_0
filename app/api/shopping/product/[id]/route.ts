@@ -1,3 +1,4 @@
+import { ProductData } from "@/typings";
 import { NextResponse } from "next/server";
 
 type Params = { params: { id: string } };
@@ -29,4 +30,18 @@ export async function GET(
                 parse: true,
             })
         })
+
+        const data = await response.json();
+
+        if(data.results.length === 0 ) {
+            return NextResponse.next(
+                new Response("No product found", {
+                    status: 404,
+                })
+            )
+        }
+
+        const productData: ProductData = data.results[0];
+
+        return NextResponse.json(productData);
     }

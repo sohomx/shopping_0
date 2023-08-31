@@ -10,8 +10,10 @@ type Props = {
   };
 };
 
-function ProductPage({ params: { id } }: Props) {
+async function ProductPage({ params: { id } }: Props) {
+  const response = await fetch(getFetchUrl(`api/shopping/product/${id}`));
   // API ENDPOINT
+
   return <div>ProductPage</div>;
 }
 
