@@ -3,6 +3,8 @@ import { getFetchUrl } from "@/lib/getFetchUrl";
 import { PageResult, SearchParams } from "@/typings";
 import { redirect } from "next/navigation";
 
+export const revalidate = 300;
+
 type Props = {
   searchParams: SearchParams;
   params: {
