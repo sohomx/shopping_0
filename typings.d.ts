@@ -58,3 +58,14 @@ type Organic = {
     price_str: string;
     pos_overall: number;
 }
+
+export type ProductData = {
+    content: ProductContent;
+    created_at: string;
+    updated_at: string;
+    page: number;
+    url: string;
+    job_id: string;
+    status_code: number;
+    parser_type: string;
+}

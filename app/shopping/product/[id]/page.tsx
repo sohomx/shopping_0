@@ -11,6 +11,7 @@ type Props = {
 };
 
 function ProductPage({ params: { id } }: Props) {
+  // API ENDPOINT
   return <div>ProductPage</div>;
 }
 
