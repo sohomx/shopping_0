@@ -131,6 +131,53 @@ async function ProductPage({ params: { id } }: Props) {
           </div>
         </div>
       </section>
+
+      {/* for reviews of individual {id} products  */}
+
+      <section>
+        <hr className="my-10" />
+
+        {productData.content.reviews ? (
+          <>
+            <h3 className="font-bold text-2xl">
+              Reviews ({productData.content.reviews.rating})
+            </h3>
+
+            <h4 className="text-lg italic">Top Review</h4>
+
+            {productData.content.reviews.top_review && (
+              <div className="border p-5 rounded-lg mt-2">
+                <div className="flex space-x-1">
+                  <p className="font-bold capitalize">
+                    {productData.content.reviews.top_review.author} says:
+                  </p>
+
+                  <h5>{productData.content.reviews.top_review.title}</h5>
+                </div>
+
+                <div className="flex space-x-1 mb-2">
+                  {[
+                    ...Array.from({
+                      length: Math.round(
+                        productData.content.reviews.top_review.rating
+                      ),
+                    }),
+                  ].map((_, i) => (
+                    <StarIcon key={i} className="h-5 w-5 text-yellow-500" />
+                  ))}
+                </div>
+
+                <p>"{productData.content.reviews.top_review.text}"</p>
+              </div>
+            )}
+          </>
+        ) : (
+          <div>
+            <h3 className="font-bold text-2xl">Reviews</h3>
+            <h4 className="text-lg stalic">No review's yet</h4>
+          </div>
+        )}
+      </section>
     </div>
   );
 }
