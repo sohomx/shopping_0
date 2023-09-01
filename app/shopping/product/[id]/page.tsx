@@ -115,6 +115,19 @@ async function ProductPage({ params: { id } }: Props) {
             <hr className="my-5" />
 
             <p>{productData.content.description}</p>
+
+            {/* product details (in most cases it doesn't exist) */}
+            {productData.content.highlights && (
+              <div className="mt-5 space-y-2">
+                <h3 className="font-bold text-2xl">Product Highlights</h3>
+                <hr />
+                <ul className="space-y-2">
+                  {productData.content.highlights?.map((highlight) => (
+                    <li className="list-disc">{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </section>
