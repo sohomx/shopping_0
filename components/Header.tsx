@@ -1,6 +1,10 @@
 "use client";
 
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import {
+  MagnifyingGlassCircleIcon,
+  MagnifyingGlassIcon,
+  WrenchScrewdriverIcon,
+} from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import SearchButton from "./SearchButton";
@@ -13,6 +17,7 @@ import {
 import Avatar from "react-avatar";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 const SORT_BY_MAP = {
   r: "Default",
@@ -31,15 +36,15 @@ function Header() {
   return (
     <header className="flex flex-col items-center md:flex-row md:items-start md:space-x-6 px-2 pt-10 pb-5 md:p-10 md:p-5">
       <Link href="/">
-        <Image
+        {/* <Image
           src="https://links.papareact.com/208"
           alt="Logo"
           width={150}
           height={150}
           className="object-contain mr-10"
-        />
+        /> */}
+        <WrenchScrewdriverIcon className="h-16 md:w-16 text-black-600" />
       </Link>
-
       <div className="w-full md:max-w-2xl">
         {/* FORM */}
         <form
@@ -128,10 +133,10 @@ function Header() {
           </div>
         </form>
       </div>
-
-      <div className="hidden lg:flex flex-1 justify-end">
+      {/* FOR AVATAR */}
+      {/* <div className="hidden lg:flex flex-1 justify-end">
         <Avatar name="Sohom Pal" round size="50" />
-      </div>
+      </div> */}
     </header>
   );
 }
