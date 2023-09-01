@@ -46,6 +46,29 @@ async function ProductPage({ params: { id } }: Props) {
           ))}
         </div>
       )}
+
+      <section className="flex flex-col lg:flex-row mt-5 md:mt-0">
+        <div className="md:p-10 md:pl-0 mx-auto">
+          <div className="flex gap-4">
+            <img
+              className="h-80 w-80 p-5 border rounded-md object-contain"
+              src={productData.content.images?.full_size[0]}
+              alt=""
+            />
+            <div className="flex flex-col justify-between">
+              {productData.content.images?.full_size
+                .slice(1, 3)
+                .map((image) => (
+                  <img
+                    src={image}
+                    alt=""
+                    className="w-[9.5rem] h-[9.5rem] object-contain border rounded-md"
+                  />
+                ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
