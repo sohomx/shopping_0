@@ -48,6 +48,7 @@ async function ProductPage({ params: { id } }: Props) {
       )}
 
       <section className="flex flex-col lg:flex-row mt-5 md:mt-0">
+        {/* for {id} images  */}
         <div className="md:p-10 md:pl-0 mx-auto">
           <div className="flex gap-4">
             <img
@@ -55,6 +56,8 @@ async function ProductPage({ params: { id } }: Props) {
               src={productData.content.images?.full_size[0]}
               alt=""
             />
+
+            {/* for {id} image [2] */}
             <div className="flex flex-col justify-between">
               {productData.content.images?.full_size
                 .slice(1, 3)
@@ -66,6 +69,52 @@ async function ProductPage({ params: { id } }: Props) {
                   />
                 ))}
             </div>
+          </div>
+
+          <div className="flex space-x-6 overflow x-scroll py-2 md:w-[30rem]">
+            {productData.content.images?.full_size.slice(3).map((image) => (
+              <img src={image} alt="" className="w-20 h-20 object-contain" />
+            ))}
+          </div>
+        </div>
+
+        {/* for product details for each {id}  */}
+        <div className="pt-10 flex-1">
+          <div>
+            {productData.content.pricing.online[0].details && (
+              <>
+                <h3 className="font-bold text-2xl">Product Details</h3>
+
+                <p className="text-lg">
+                  {productData.content.pricing.online[0].price_total}{" "}
+                  {productData.content.pricing.online[0].currency}
+                </p>
+
+                <div className="flex-space-x-4">
+                  <p className="text-sm text-gray-600">
+                    ({productData.content.pricing.online[0].price}{" "}
+                    {productData.content.pricing.online[0].currency} +{" "}
+                    {productData.content.pricing.online[0].price_tax}{" "}
+                    {productData.content.pricing.online[0].currency} tax)
+                  </p>
+
+                  {productData.content.pricing.online.length > 1 && (
+                    <p className="text-sm text-blue-600">
+                      + {productData.content.pricing.online.length - 1} more
+                      prices
+                    </p>
+                  )}
+                </div>
+
+                <p className="text-sm text-gray-600 mt-5">
+                  {productData.content.pricing.online[0].details}
+                </p>
+              </>
+            )}
+
+            <hr className="my-5" />
+
+            <p>{productData.content.description}</p>
           </div>
         </div>
       </section>
